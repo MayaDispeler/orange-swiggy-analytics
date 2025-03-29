@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { 
   LayoutDashboard, 
-  BarChart, 
-  PieChart, 
-  Users, 
-  Phone, 
-  Activity, 
-  Settings 
+  ShoppingBag, 
+  Heart, 
+  MapPin, 
+  CreditCard, 
+  Clock, 
+  Settings, 
+  HelpCircle, 
+  User 
 } from 'lucide-react';
 
 interface SidebarItemProps {
@@ -44,9 +46,9 @@ const Sidebar = () => {
       <div className="p-4">
         <div className="flex items-center gap-2">
           <div className="bg-swiggy-orange p-2 rounded-md">
-            <BarChart className="h-5 w-5 text-white" />
+            <ShoppingBag className="h-5 w-5 text-white" />
           </div>
-          <h1 className="text-xl font-bold text-gray-900">Swiggy Analytics</h1>
+          <h1 className="text-xl font-bold text-gray-900">My Swiggy</h1>
         </div>
       </div>
       
@@ -58,38 +60,50 @@ const Sidebar = () => {
           isActive={pathname === '/'} 
         />
         <SidebarItem 
-          icon={<BarChart className="h-5 w-5" />} 
-          label="Sales Analysis" 
-          href="/sales" 
-          isActive={pathname === '/sales'} 
+          icon={<ShoppingBag className="h-5 w-5" />} 
+          label="My Orders" 
+          href="/orders" 
+          isActive={pathname === '/orders'} 
         />
         <SidebarItem 
-          icon={<Users className="h-5 w-5" />} 
-          label="Training" 
-          href="/training" 
-          isActive={pathname === '/training'} 
+          icon={<Heart className="h-5 w-5" />} 
+          label="Favorites" 
+          href="/favorites" 
+          isActive={pathname === '/favorites'} 
         />
         <SidebarItem 
-          icon={<Phone className="h-5 w-5" />} 
-          label="Call Center" 
-          href="/calls" 
-          isActive={pathname === '/calls'} 
+          icon={<MapPin className="h-5 w-5" />} 
+          label="Addresses" 
+          href="/addresses" 
+          isActive={pathname === '/addresses'} 
         />
         <SidebarItem 
-          icon={<PieChart className="h-5 w-5" />} 
-          label="Advertising" 
-          href="/advertising" 
-          isActive={pathname === '/advertising'} 
+          icon={<CreditCard className="h-5 w-5" />} 
+          label="Payments" 
+          href="/payments" 
+          isActive={pathname === '/payments'} 
         />
         <SidebarItem 
-          icon={<Activity className="h-5 w-5" />} 
-          label="Performance" 
-          href="/performance" 
-          isActive={pathname === '/performance'} 
+          icon={<Clock className="h-5 w-5" />} 
+          label="Order History" 
+          href="/history" 
+          isActive={pathname === '/history'} 
         />
       </div>
       
       <div className="px-3 py-4 border-t border-gray-200">
+        <SidebarItem 
+          icon={<User className="h-5 w-5" />} 
+          label="Profile" 
+          href="/profile" 
+          isActive={pathname === '/profile'} 
+        />
+        <SidebarItem 
+          icon={<HelpCircle className="h-5 w-5" />} 
+          label="Help" 
+          href="/help" 
+          isActive={pathname === '/help'} 
+        />
         <SidebarItem 
           icon={<Settings className="h-5 w-5" />} 
           label="Settings" 
