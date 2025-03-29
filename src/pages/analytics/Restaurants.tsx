@@ -36,9 +36,9 @@ interface RestaurantsChartData {
     y: number[];
   };
   repeatOrders: {
-    x: string[];
-    y: number[];
-  };
+    month: string;
+    orders: number;
+  }[];
 }
 
 interface RestaurantMetrics {
@@ -238,26 +238,27 @@ const AnalyticsRestaurants = () => {
     // Get top restaurant with most orders overall
     const topRestaurant = topRestaurantsEntries[0]?.[0] || 'No Data';
     
-    // Track orders for top restaurant over time
+    // Get all months in chronological order
     const months = Object.keys(repeatOrdersByMonth).sort();
+    
+    // Track orders for top restaurant over time
     const topRestaurantOrders = months.map(month => {
+      const [year, monthNum] = month.split('-');
+      const date = new Date(parseInt(year), parseInt(monthNum) - 1);
+      const monthStr = date.toLocaleDateString('en-US', { month: 'short', year: '2-digit' });
+      
       return {
-        month,
-        count: repeatOrdersByMonth[month][topRestaurant] || 0
+        month: monthStr,
+        orders: repeatOrdersByMonth[month][topRestaurant] || 0
       };
     });
-    
-    const repeatOrders = {
-      x: topRestaurantOrders.map(item => item.month),
-      y: topRestaurantOrders.map(item => item.count)
-    };
 
     return {
       topRestaurants,
       restaurantTypes: restaurantTypesData,
       orderValuesByRestaurant,
       cuisineOrderCounts,
-      repeatOrders
+      repeatOrders: topRestaurantOrders
     };
   };
 
@@ -286,6 +287,18 @@ const AnalyticsRestaurants = () => {
 
   // Dummy data for development
   const getDummyRestaurantData = (): RestaurantsChartData => {
+    // Generate last 6 months of data
+    const months = [];
+    const orders = [];
+    const today = new Date();
+    
+    for (let i = 5; i >= 0; i--) {
+      const date = new Date(today.getFullYear(), today.getMonth() - i, 1);
+      const monthStr = date.toLocaleDateString('en-US', { month: 'short', year: '2-digit' });
+      months.push(monthStr);
+      orders.push(Math.floor(Math.random() * 8) + 2); // 2-10 orders per month
+    }
+
     return {
       topRestaurants: {
         x: ['Biryani Blues', 'McDonald\'s', 'Pizza Hut', 'Meghana Foods', 'Domino\'s', 'Empire Restaurant', 'Subway', 'KFC', 'Burger King', 'Taco Bell'],
@@ -304,10 +317,10 @@ const AnalyticsRestaurants = () => {
         x: ['North Indian', 'Fast Food', 'Italian', 'Biryani', 'Continental', 'Mexican'],
         y: [28, 24, 20, 15, 8, 5]
       },
-      repeatOrders: {
-        x: ['2023-01', '2023-02', '2023-03', '2023-04', '2023-05', '2023-06'],
-        y: [3, 4, 2, 5, 2, 4]
-      }
+      repeatOrders: months.map((month, index) => ({
+        month,
+        orders: orders[index]
+      }))
     };
   };
 
@@ -470,16 +483,20 @@ const AnalyticsRestaurants = () => {
       <div className="mb-6">
         <Card>
           <CardHeader>
-            <CardTitle>Repeat Orders for Favorite Restaurant</CardTitle>
-            <CardDescription>How your ordering frequency has changed over time for {chartData?.topRestaurants.x[0]}</CardDescription>
+            <CardTitle>Repeat Orders for {chartData?.topRestaurants.x[0]}</CardTitle>
+            <CardDescription>Order frequency over time for your favorite restaurant</CardDescription>
           </CardHeader>
           <CardContent className="h-80">
             {chartData ? (
               <AreaChart 
                 data={chartData.repeatOrders}
-                xAxisTitle="Month"
-                yAxisTitle="Number of Orders"
-                color="#06B6D4" // Cyan
+                xAxisDataKey="month"
+                areaDataKey="orders"
+                title=""
+                gradient={{
+                  startColor: "#06B6D4",
+                  endColor: "#0EA5E9"
+                }}
               />
             ) : (
               <div className="flex items-center justify-center h-full text-gray-500">
