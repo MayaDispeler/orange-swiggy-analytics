@@ -176,12 +176,30 @@
   /* Shining Metrics */
   .metric-value {
     @apply relative text-3xl font-bold text-indigo-600 mt-2;
-    background: linear-gradient(to right, #6366F1, #8B5CF6, #6366F1);
+    background: linear-gradient(
+      to right,
+      #6366F1,
+      #8B5CF6,
+      #6366F1
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     background-size: 200% auto;
     animation: shine 6s linear infinite;
+  }
+  
+  .metric-value:before {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite;
   }
   
   .metric-title {
@@ -190,6 +208,7 @@
   
   .metric-subtitle {
     @apply text-xs font-medium text-slate-500 mt-1;
+    opacity: 0.8;
   }
   
   /* Chart Containers */
@@ -353,7 +372,6 @@
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
 
