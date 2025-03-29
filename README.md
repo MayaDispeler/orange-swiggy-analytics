@@ -1,69 +1,136 @@
-# Welcome to your Lovable project
+# 🍽️ Swiggy Order Data Pipeline & Analytics Dashboard
 
-## Project info
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![Dash](https://img.shields.io/badge/Dash-Plotly-blue)](https://dash.plotly.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**URL**: https://lovable.dev/projects/850eb238-dbdb-4eb3-ba49-d4e723f53a45
+An end-to-end **Data Engineering + Visualization** project that transforms your personal Swiggy order history into meaningful insights using **Dash**, **Plotly**, and **Pandas**.
 
-## How can I edit this code?
+This dashboard scrapes structured JSON from your exported Swiggy data, processes it using a custom pipeline, and reveals trends in your food delivery habits — such as top items, restaurants, savings via coupons, delivery times, and much more.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🚀 Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/850eb238-dbdb-4eb3-ba49-d4e723f53a45) and start prompting.
+- ✅ End-to-end ETL pipeline from raw JSON to interactive insights  
+- 📦 Parsing of nested order items, charges, delivery partner info  
+- 🧠 Enrichment with calculated fields (e.g., delivery time in hours, distance, veg/non-veg split)  
+- 🗺️ Restaurant density mapping using coordinates  
+- 📊 Interactive visualizations with Dash & Plotly  
+- 💳 Payment method and coupon usage analytics  
+- 📈 Time-based ordering trends and delivery performance tracking  
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🧰 Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+| Layer             | Tools / Libraries                                |
+|------------------|--------------------------------------------------|
+| Language          | Python 3.8+                                      |
+| Data Handling     | Pandas, NumPy, JSON                              |
+| Visualization     | Dash, Plotly, Dash DataTable                     |
+| Geospatial        | Plotly Densitymapbox                             |
+| Frontend Styling  | Dash HTML, Markdown, CSS                         |
+| Hosting (Optional)| Render, Streamlit Cloud, or Heroku               |
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🧪 Project Structure
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+├── app.py                   # Main Dash application
+├── myordersswiggy.txt       # Exported Swiggy order JSON file
+├── requirements.txt         # Python dependencies
+├── README.md                # Project documentation
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## ⚙️ Setup Instructions
 
-**Use GitHub Codespaces**
+### 1️⃣ Clone the Repository
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+git clone https://github.com/your-username/swiggy-order-analytics.git
+cd swiggy-order-analytics
+```
 
-## What technologies are used for this project?
+### 2️⃣ Create a Virtual Environment
 
-This project is built with .
+```bash
+python -m venv venv
+source venv/bin/activate        # On Windows: venv\Scripts\activate
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### 3️⃣ Install Dependencies
 
-## How can I deploy this project?
+```bash
+pip install -r requirements.txt
+```
 
-Simply open [Lovable](https://lovable.dev/projects/850eb238-dbdb-4eb3-ba49-d4e723f53a45) and click on Share -> Publish.
+### 4️⃣ Add Your Swiggy Data
 
-## I want to use a custom domain - is that possible?
+- Export your Swiggy order history from the Swiggy data download portal.
+- Place the `myordersswiggy.txt` file in the root directory of this project.
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+### 5️⃣ Run the App
+
+```bash
+python app.py
+```
+
+Visit [http://localhost:8050](http://localhost:8050) in your browser to explore the dashboard.
+
+---
+
+## 📸 Screenshots
+
+> _(Insert screenshots below after running the app)_
+
+- ✅ Time series charts for order value & spend  
+- 🗺️ Restaurant heatmaps (delivery hotspots)  
+- 📊 Pie charts for item types, time-of-day, coupons, and more  
+- 🧾 Tabular views for delivery partners, restaurant types, coupon codes  
+
+---
+
+## 💡 Use Cases
+
+- 📅 Track your food delivery trends over time  
+- 🔍 Identify most-ordered items and preferred restaurants  
+- 💸 Discover savings from coupons and discounts  
+- 🚚 Analyze delivery performance and partner frequency  
+- 🧠 Build personal insights from raw customer behavior data  
+
+---
+
+## 📚 License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+## 👤 Author
+
+**Srihari Venkatesan**
+
+- [LinkedIn](https://linkedin.com/in/sriharivvenkatesan)  
+- [GitHub](https://github.com/mayadispeler)  
+- [Hugging Face](https://huggingface.co/SrihariV)
+
+---
+
+## ✨ Extras
+
+Would you like to extend this?
+
+- [ ] Integrate with a SQL or NoSQL backend  
+- [ ] Add time filters or search functionality  
+- [ ] Deploy on Streamlit Cloud or Render for public access  
+- [ ] Add NLP for order note analysis  
+- [ ] Connect with Swiggy APIs (if accessible) for real-time streaming  
+
+---
+
+> 💬 Feel free to fork this, use it for your own Swiggy data, and share your insights!  
+> Contributions and pull requests are welcome!
