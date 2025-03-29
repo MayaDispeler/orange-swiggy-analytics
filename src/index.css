@@ -284,54 +284,85 @@
   }
   
   /* Glass Buttons */
-  .btn-primary {
-    @apply relative overflow-hidden bg-gradient-to-r from-indigo-500 to-purple-500 
-           text-white rounded-lg px-5 py-2.5 font-medium;
+  .btn-glass {
+    @apply relative overflow-hidden bg-white/30 backdrop-blur-md 
+           border border-white/20 text-slate-700 rounded-lg 
+           px-5 py-2.5 font-medium transition-all duration-300;
     box-shadow: 
-      0 4px 12px rgba(99, 102, 241, 0.3),
-      inset 0 1px 1px rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
+      0 4px 12px rgba(0, 0, 0, 0.05),
+      inset 0 1px 1px rgba(255, 255, 255, 0.4);
   }
   
-  .btn-primary:before {
+  .btn-glass:before {
     content: '';
-    @apply absolute top-0 left-0 w-full h-full bg-white/20 pointer-events-none;
+    @apply absolute inset-0 bg-gradient-to-r from-white/20 to-transparent;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
   
-  .btn-primary:hover {
-    @apply translate-y-[-2px];
-    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  .btn-glass:hover {
+    @apply bg-white/40 border-white/30 translate-y-[-2px];
+    box-shadow: 
+      0 8px 24px rgba(0, 0, 0, 0.08),
+      inset 0 1px 2px rgba(255, 255, 255, 0.6);
   }
   
-  .btn-primary:hover:before {
+  .btn-glass:hover:before {
+    opacity: 1;
+  }
+  
+  /* Glass Primary Button */
+  .btn-glass-primary {
+    @apply relative overflow-hidden bg-gradient-to-r from-indigo-500 to-purple-500 
+           text-white rounded-lg px-5 py-2.5 font-medium transition-all duration-300;
+    box-shadow: 
+      0 4px 12px rgba(99, 102, 241, 0.3),
+      inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  }
+  
+  .btn-glass-primary:before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-white/20 to-transparent;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .btn-glass-primary:hover {
+    @apply translate-y-[-2px];
+    box-shadow: 
+      0 8px 24px rgba(99, 102, 241, 0.4),
+      inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  }
+  
+  .btn-glass-primary:hover:before {
     opacity: 1;
   }
   
   /* Glass Secondary Button */
-  .btn-secondary {
-    @apply relative overflow-hidden bg-white/50 backdrop-blur-md border border-white/20
-           text-indigo-600 rounded-lg px-5 py-2.5 font-medium;
+  .btn-glass-secondary {
+    @apply relative overflow-hidden bg-white/40 backdrop-blur-md 
+           border border-white/20 text-indigo-600 rounded-lg 
+           px-5 py-2.5 font-medium transition-all duration-300;
     box-shadow: 
       0 4px 12px rgba(0, 0, 0, 0.05),
       inset 0 1px 1px rgba(255, 255, 255, 0.4);
-    transition: all 0.3s ease;
   }
   
-  .btn-secondary:before {
+  .btn-glass-secondary:before {
     content: '';
-    @apply absolute top-0 left-0 w-full h-full bg-white/20 pointer-events-none;
+    @apply absolute inset-0 bg-gradient-to-r from-indigo-50/30 to-transparent;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
   
-  .btn-secondary:hover {
-    @apply translate-y-[-2px] border-white/30 bg-white/60;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  .btn-glass-secondary:hover {
+    @apply bg-white/50 border-white/30 translate-y-[-2px];
+    box-shadow: 
+      0 8px 24px rgba(0, 0, 0, 0.08),
+      inset 0 1px 2px rgba(255, 255, 255, 0.6);
   }
   
-  .btn-secondary:hover:before {
+  .btn-glass-secondary:hover:before {
     opacity: 1;
   }
   
