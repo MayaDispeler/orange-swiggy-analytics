@@ -10,6 +10,21 @@ A modern **Analytics Dashboard** built with React, TypeScript, and Tailwind CSS 
 
 ---
 
+## 📸 Screenshots
+
+Here's a glimpse of the dashboard in action:
+
+### Analytics Overview
+![Analytics Overview](./public/lovable-uploads/Screenshot%202025-03-29%20142105.png)
+
+### Restaurant Insights
+![Restaurant Analytics](./public/lovable-uploads/Screenshot%202025-03-29%20142122.png)
+
+### Order Patterns
+![Order Analytics](./public/lovable-uploads/Screenshot%202025-03-29%20142150.png)
+
+---
+
 ## 🚀 Features
 
 - ✨ Modern UI with glassmorphism design
