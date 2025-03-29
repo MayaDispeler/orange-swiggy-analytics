@@ -374,22 +374,96 @@
   }
   
   /* Glass Tables */
-  .glass-table {
-    @apply w-full border-collapse bg-white/30 backdrop-blur-lg rounded-xl overflow-hidden;
+  .table-glass {
+    @apply w-full border-collapse bg-white/30 backdrop-blur-lg 
+           rounded-xl overflow-hidden relative;
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   }
   
-  .glass-table th {
-    @apply bg-white/40 backdrop-blur-md text-left p-4 font-medium text-slate-700 border-b border-white/20;
+  .table-glass:before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none;
+    opacity: 0.5;
   }
   
-  .glass-table td {
-    @apply p-4 border-b border-white/10 text-slate-700;
+  .table-glass thead {
+    @apply bg-white/40 backdrop-blur-md border-b border-white/20;
   }
   
-  .glass-table tr:hover td {
+  .table-glass th {
+    @apply text-left p-4 font-medium text-slate-700;
+  }
+  
+  .table-glass td {
+    @apply p-4 border-b border-white/10 text-slate-700 relative;
+  }
+  
+  .table-glass tbody tr {
+    @apply transition-all duration-200;
+  }
+  
+  .table-glass tbody tr:hover {
     @apply bg-white/20;
+  }
+  
+  .table-glass tbody tr:hover td:before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-white/20 to-transparent;
+    opacity: 0;
+    animation: shimmer 1s forwards;
+  }
+  
+  /* Glass Table Pagination */
+  .table-pagination {
+    @apply flex items-center justify-between p-4 bg-white/20 
+           border-t border-white/10 backdrop-blur-sm;
+  }
+  
+  .table-pagination-button {
+    @apply px-3 py-1 rounded-lg bg-white/30 text-slate-700 
+           border border-white/20 backdrop-blur-sm 
+           transition-all duration-200;
+    box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.05),
+      inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  }
+  
+  .table-pagination-button:hover {
+    @apply bg-white/40 border-white/30;
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.08),
+      inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  }
+  
+  .table-pagination-info {
+    @apply text-sm text-slate-600;
+  }
+  
+  /* Glass Table Search */
+  .table-search {
+    @apply relative mb-4;
+  }
+  
+  .table-search-input {
+    @apply w-full px-4 py-2 pl-10 bg-white/30 backdrop-blur-md 
+           border border-white/20 rounded-lg text-slate-700 
+           placeholder-slate-400 transition-all duration-200;
+    box-shadow: 
+      inset 0 2px 4px rgba(0, 0, 0, 0.05),
+      0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .table-search-input:focus {
+    @apply outline-none border-indigo-300 bg-white/40;
+    box-shadow: 
+      0 0 0 2px rgba(99, 102, 241, 0.1),
+      inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .table-search-icon {
+    @apply absolute left-3 top-1/2 transform -translate-y-1/2 
+           text-slate-400 pointer-events-none;
   }
   
   /* Glass Inputs */
