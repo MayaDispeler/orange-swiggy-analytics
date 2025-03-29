@@ -54,39 +54,12 @@ const Sidebar = () => {
         </div>
       </div>
       
-      <div className="px-3 py-2">
-        <div className="text-xs font-medium text-gray-500 px-3 py-2 uppercase">Main</div>
-      </div>
-      
       <div className="flex-1 px-3 py-2 space-y-1 overflow-y-auto">
-        <SidebarItem 
-          icon={<LayoutDashboard className="h-5 w-5" />} 
-          label="Dashboard" 
-          href="/" 
-          isActive={pathname === '/'} 
-        />
-        <SidebarItem 
-          icon={<ShoppingBag className="h-5 w-5" />} 
-          label="My Orders" 
-          href="/orders" 
-          isActive={pathname === '/orders'} 
-        />
-        <SidebarItem 
-          icon={<Heart className="h-5 w-5" />} 
-          label="Favorites" 
-          href="/favorites" 
-          isActive={pathname === '/favorites'} 
-        />
-        
-        <div className="pt-4 pb-2">
-          <div className="text-xs font-medium text-gray-500 px-3 py-2 uppercase">Analytics</div>
-        </div>
-        
         <SidebarItem 
           icon={<LayoutDashboard className="h-5 w-5" />} 
           label="📊 Overview" 
           href="/analytics/overview" 
-          isActive={pathname === '/analytics/overview'} 
+          isActive={pathname === '/analytics/overview' || pathname === '/'} 
         />
         <SidebarItem 
           icon={<Calendar className="h-5 w-5" />} 
