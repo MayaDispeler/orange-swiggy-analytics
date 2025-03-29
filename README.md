@@ -1,47 +1,64 @@
-# 🍽️ Swiggy Order Data Pipeline & Analytics Dashboard
+# 🍽️ Swiggy Analytics Dashboard
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![Dash](https://img.shields.io/badge/Dash-Plotly-blue)](https://dash.plotly.com/)
+[![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.0-646CFF.svg)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC.svg)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-An end-to-end **Data Engineering + Visualization** project that transforms your personal Swiggy order history into meaningful insights using **Dash**, **Plotly**, and **Pandas**.
-
-This dashboard scrapes structured JSON from your exported Swiggy data, processes it using a custom pipeline, and reveals trends in your food delivery habits — such as top items, restaurants, savings via coupons, delivery times, and much more.
+A modern **Analytics Dashboard** built with React, TypeScript, and Tailwind CSS that transforms your Swiggy order history into beautiful, interactive visualizations. Get insights into your ordering patterns, favorite restaurants, and spending habits with a sleek, responsive interface.
 
 ---
 
 ## 🚀 Features
 
-- ✅ End-to-end ETL pipeline from raw JSON to interactive insights  
-- 📦 Parsing of nested order items, charges, delivery partner info  
-- 🧠 Enrichment with calculated fields (e.g., delivery time in hours, distance, veg/non-veg split)  
-- 🗺️ Restaurant density mapping using coordinates  
-- 📊 Interactive visualizations with Dash & Plotly  
-- 💳 Payment method and coupon usage analytics  
-- 📈 Time-based ordering trends and delivery performance tracking  
+- ✨ Modern UI with glassmorphism design
+- 📊 Interactive charts and visualizations using Recharts
+- 🎯 Real-time analytics and insights
+- 📱 Fully responsive design
+- 🌙 Light/Dark mode support
+- 🔍 Advanced filtering and search capabilities
+- 📈 Trend analysis and patterns
+- 💳 Order value and spending analytics
+- 🕒 Delivery time tracking
+- 🏪 Restaurant and cuisine insights
 
 ---
 
 ## 🧰 Tech Stack
 
-| Layer             | Tools / Libraries                                |
-|------------------|--------------------------------------------------|
-| Language          | Python 3.8+                                      |
-| Data Handling     | Pandas, NumPy, JSON                              |
-| Visualization     | Dash, Plotly, Dash DataTable                     |
-| Geospatial        | Plotly Densitymapbox                             |
-| Frontend Styling  | Dash HTML, Markdown, CSS                         |
-| Hosting (Optional)| Render, Streamlit Cloud, or Heroku               |
+| Category | Technologies |
+|----------|-------------|
+| Frontend | React 18, TypeScript |
+| Build Tool | Vite |
+| Styling | Tailwind CSS, Shadcn/ui |
+| State Management | React Hooks |
+| Charts | Recharts |
+| Icons | Lucide React |
+| Code Quality | ESLint, Prettier |
+| Package Manager | npm |
 
 ---
 
-## 🧪 Project Structure
+## 📁 Project Structure
 
 ```
-├── app.py                   # Main Dash application
-├── myordersswiggy.txt       # Exported Swiggy order JSON file
-├── requirements.txt         # Python dependencies
-├── README.md                # Project documentation
+├── src/
+│   ├── components/         # Reusable UI components
+│   │   ├── Charts/        # Chart components
+│   │   ├── Layout/        # Layout components
+│   │   └── ui/           # Shadcn UI components
+│   ├── pages/             # Page components
+│   │   └── analytics/    # Analytics pages
+│   ├── lib/              # Utilities and helpers
+│   ├── styles/           # Global styles
+│   └── App.tsx           # Root component
+├── public/               # Static assets
+├── index.html           # Entry HTML
+├── vite.config.ts       # Vite configuration
+├── tailwind.config.js   # Tailwind configuration
+├── tsconfig.json        # TypeScript configuration
+└── package.json         # Project dependencies
 ```
 
 ---
@@ -51,62 +68,77 @@ This dashboard scrapes structured JSON from your exported Swiggy data, processes
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/swiggy-order-analytics.git
-cd swiggy-order-analytics
+git clone https://github.com/your-username/orange-swiggy-analytics.git
+cd orange-swiggy-analytics
 ```
 
-### 2️⃣ Create a Virtual Environment
+### 2️⃣ Install Dependencies
 
 ```bash
-python -m venv venv
-source venv/bin/activate        # On Windows: venv\Scripts\activate
+npm install
 ```
 
-### 3️⃣ Install Dependencies
+### 3️⃣ Start Development Server
 
 ```bash
-pip install -r requirements.txt
+npm run dev
 ```
 
-### 4️⃣ Add Your Swiggy Data
+Visit [http://localhost:5173](http://localhost:5173) to view the dashboard.
 
-- Export your Swiggy order history from the Swiggy data download portal.
-- Place the `myordersswiggy.txt` file in the root directory of this project.
-
-### 5️⃣ Run the App
+### 4️⃣ Build for Production
 
 ```bash
-python app.py
+npm run build
 ```
-
-Visit [http://localhost:8050](http://localhost:8050) in your browser to explore the dashboard.
 
 ---
 
-## 📸 Screenshots
+## 📊 Available Analytics
 
-> _(Insert screenshots below after running the app)_
+- **Order Insights**
+  - Order frequency over time
+  - Average order value
+  - Peak ordering hours
+  - Delivery performance
 
-- ✅ Time series charts for order value & spend  
-- 🗺️ Restaurant heatmaps (delivery hotspots)  
-- 📊 Pie charts for item types, time-of-day, coupons, and more  
-- 🧾 Tabular views for delivery partners, restaurant types, coupon codes  
+- **Restaurant Analytics**
+  - Top restaurants by orders
+  - Cuisine preferences
+  - Restaurant type distribution
+  - Repeat order patterns
+
+- **Customer Behavior**
+  - Order time patterns
+  - Payment methods
+  - Delivery locations
+  - Coupon usage
 
 ---
 
-## 💡 Use Cases
+## 🎨 UI Components
 
-- 📅 Track your food delivery trends over time  
-- 🔍 Identify most-ordered items and preferred restaurants  
-- 💸 Discover savings from coupons and discounts  
-- 🚚 Analyze delivery performance and partner frequency  
-- 🧠 Build personal insights from raw customer behavior data  
+The dashboard uses custom-designed components built with Tailwind CSS and Shadcn/ui:
+
+- 📈 Interactive charts (Area, Bar, Line, Pie)
+- 🎴 Glass-effect cards
+- 📱 Responsive navigation
+- 🔢 Summary metrics
+- 📊 Data tables
+- 🎯 Status indicators
 
 ---
 
-## 📚 License
+## 💡 Future Enhancements
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+- [ ] Add authentication system
+- [ ] Implement real-time data updates
+- [ ] Add more advanced analytics
+- [ ] Integrate with backend API
+- [ ] Add export functionality
+- [ ] Implement search and filters
+- [ ] Add more chart types
+- [ ] Enhance mobile experience
 
 ---
 
@@ -114,23 +146,16 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 **Srihari Venkatesan**
 
-- [LinkedIn](https://linkedin.com/in/sriharivvenkatesan)  
-- [GitHub](https://github.com/mayadispeler)  
+- [LinkedIn](https://linkedin.com/in/sriharivvenkatesan)
+- [GitHub](https://github.com/mayadispeler)
 - [Hugging Face](https://huggingface.co/SrihariV)
 
 ---
 
-## ✨ Extras
+## 📄 License
 
-Would you like to extend this?
-
-- [ ] Integrate with a SQL or NoSQL backend  
-- [ ] Add time filters or search functionality  
-- [ ] Deploy on Streamlit Cloud or Render for public access  
-- [ ] Add NLP for order note analysis  
-- [ ] Connect with Swiggy APIs (if accessible) for real-time streaming  
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 ---
 
-> 💬 Feel free to fork this, use it for your own Swiggy data, and share your insights!  
-> Contributions and pull requests are welcome!
+> 💬 Feel free to contribute to this project by submitting issues or pull requests!
