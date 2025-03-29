@@ -13,6 +13,7 @@ import CallDurationMetric from '@/components/Dashboard/CallDurationMetric';
 import CourseEnrollmentChart from '@/components/Dashboard/CourseEnrollmentChart';
 import SalesTeamTable from '@/components/Dashboard/SalesTeamTable';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 
 const Dashboard = () => {
   return (
